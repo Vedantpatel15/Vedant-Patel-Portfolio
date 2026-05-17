@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>College Study Material Management System</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="shellbar">
+        <div class="brand">
+          <span class="brand-mark">SM</span>
+          <div>
+            <strong>Study Material Portal</strong>
+            <span>SVIT academic resources</span>
+          </div>
+        </div>
+        <div class="session-bar">
+          <span id="sessionChip" class="session-chip is-muted">Not signed in</span>
+          <button id="logoutButton" class="button button-ghost is-hidden" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="side-panel">
+          <img class="panel-visual" src="assets/campus-library.svg" alt="Digital library dashboard illustration">
+          <form id="loginForm" class="login-form">
+            <label>
+              Email
+              <input id="emailInput" name="email" type="text" inputmode="email" autocomplete="username" placeholder="student@svit.edu.in" required>
+            </label>
+            <label>
+              Password
+              <input id="passwordInput" name="password" type="password" autocomplete="current-password" required>
+            </label>
+            <label>
+              Role
+              <select id="roleInput" name="role">
+                <option value="STUDENT">Student</option>
+                <option value="FACULTY">Faculty</option>
+              </select>
+            </label>
+            <button class="button button-primary" type="submit">Sign in</button>
+          </form>
+
+          <nav id="navTabs" class="nav-tabs is-hidden" aria-label="Portal sections">
+            <button class="nav-tab is-active" type="button" data-view="dashboard">Dashboard</button>
+            <button class="nav-tab" type="button" data-view="materials">Materials</button>
+            <button class="nav-tab" type="button" data-view="masters">Masters</button>
+            <button id="manageNavButton" class="nav-tab" type="button" data-view="manage">Manage</button>
+          </nav>
+        </aside>
+
+        <section class="content">
+          <div id="toast" class="toast is-hidden" role="status"></div>
+
+          <section id="dashboardView" class="view is-active">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">RAP-aligned prototype</p>
+                <h1>College Study Material Management System</h1>
+              </div>
+              <span class="status-pill">OData V4 ready model</span>
+            </div>
+
+            <div id="statsGrid" class="stats-grid"></div>
+
+            <div class="split-grid">
+              <section class="panel">
+                <div class="panel-header">
+                  <h2>Department Summary</h2>
+                </div>
+                <div id="departmentSummary" class="summary-list"></div>
+              </section>
+              <section class="panel">
+                <div class="panel-header">
+                  <h2>Recent Materials</h2>
+                </div>
+                <div id="recentMaterials" class="compact-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section id="materialsView" class="view">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">Study material database</p>
+                <h1>Materials</h1>
+              </div>
+            </div>
+
+            <div class="filter-bar">
+              <label>
+                Search
+                <input id="searchInput" type="search" placeholder="Subject, title, file">
+              </label>
+              <label>
+                Department
+                <select id="departmentFilter"></select>
+              </label>
+              <label>
+                Semester
+                <select id="semesterFilter">
+                  <option value="">All semesters</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="materialsGrid" class="materials-grid"></div>
+          </section>
+
+          <section id="mastersView" class="view">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">Transparent table model</p>
+                <h1>Master Data</h1>
+              </div>
+            </div>
+
+            <div class="master-grid">
+              <section class="panel">
+                <div class="panel-header">
+                  <h2>Departments</h2>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                      </tr>
+                    </thead>
+                    <tbody id="departmentRows"></tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-header">
+                  <h2>Faculty</h2>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                      </tr>
+                    </thead>
+                    <tbody id="facultyRows"></tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="panel panel-wide">
+                <div class="panel-header">
+                  <h2>Students</h2>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Enrollment</th>
+                        <th>Department</th>
+                        <th>Semester</th>
+                      </tr>
+                    </thead>
+                    <tbody id="studentRows"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section id="manageView" class="view">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">Faculty workspace</p>
+                <h1>Upload Material Metadata</h1>
+              </div>
+            </div>
+
+            <form id="materialForm" class="panel form-grid">
+              <label>
+                Title
+                <input name="title" required maxlength="100">
+              </label>
+              <label>
+                Subject
+                <input name="subject" required maxlength="50">
+              </label>
+              <label>
+                File name
+                <input name="file_name" required maxlength="255">
+              </label>
+              <label>
+                File type
+                <select name="file_content_type" required>
+                  <option value="PDF">PDF</option>
+                  <option value="PPTX">PPTX</option>
+                  <option value="DOCX">DOCX</option>
+                  <option value="XLSX">XLSX</option>
+                  <option value="URL">URL</option>
+                </select>
+              </label>
+              <label>
+                Department
+                <select id="departmentInput" name="dept_id" required></select>
+              </label>
+              <label>
+                Semester
+                <select name="semester" required>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                </select>
+              </label>
+              <label class="field-wide">
+                File URL
+                <input name="file_url" type="url" required>
+              </label>
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Save material</button>
+              </div>
+            </form>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
