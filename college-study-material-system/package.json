@@ -1,0 +1,17 @@
+{
+  "name": "college-study-material-system",
+  "version": "1.0.0",
+  "description": "Fiori-style frontend and Node backend for an ABAP College Study Material Management System.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "sap",
+    "fiori",
+    "abap",
+    "study-material"
+  ],
+  "author": "Vedant Patel",
+  "license": "MIT"
+}

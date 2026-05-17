@@ -1,0 +1,162 @@
+{
+  "users": [
+    {
+      "user_id": "STU001",
+      "role": "STUDENT",
+      "password_hash": "703b0a3d6ad75b649a28adde7d83c6251da457549263bc7ff45ec709b0a8448b",
+      "last_login": "",
+      "email": "student@svit.edu.in",
+      "name": "Aarav Shah",
+      "dept_id": "CSE",
+      "semester": "06"
+    },
+    {
+      "user_id": "FAC001",
+      "role": "FACULTY",
+      "password_hash": "27041f5856c7387a997252694afb048d1aa939228ffcdbd6285b979b8da20e7a",
+      "last_login": "",
+      "email": "faculty@svit.edu.in",
+      "name": "Dr. Meera Desai",
+      "dept_id": "CSE",
+      "semester": ""
+    },
+    {
+      "user_id": "ADM001",
+      "role": "FACULTY",
+      "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "last_login": "",
+      "email": "admin@svit.edu.in",
+      "name": "Vedant Patel",
+      "dept_id": "IT",
+      "semester": ""
+    }
+  ],
+  "departments": [
+    {
+      "dept_id": "CSE",
+      "dept_name": "Computer Science Engineering",
+      "dept_code": 101
+    },
+    {
+      "dept_id": "IT",
+      "dept_name": "Information Technology",
+      "dept_code": 102
+    },
+    {
+      "dept_id": "EC",
+      "dept_name": "Electronics and Communication",
+      "dept_code": 103
+    }
+  ],
+  "faculty": [
+    {
+      "faculty_id": "FAC001",
+      "name": "Dr. Meera Desai",
+      "email": "faculty@svit.edu.in",
+      "phone": "9876543210",
+      "dept_id": "CSE",
+      "designation": "Assistant Professor"
+    },
+    {
+      "faculty_id": "FAC002",
+      "name": "Prof. Nilesh Trivedi",
+      "email": "nilesh.trivedi@svit.edu.in",
+      "phone": "9876501234",
+      "dept_id": "IT",
+      "designation": "Professor"
+    },
+    {
+      "faculty_id": "FAC003",
+      "name": "Dr. Rupa Mehta",
+      "email": "rupa.mehta@svit.edu.in",
+      "phone": "9876509876",
+      "dept_id": "EC",
+      "designation": "HOD"
+    }
+  ],
+  "students": [
+    {
+      "student_id": "STU001",
+      "name": "Aarav Shah",
+      "gender": "M",
+      "dob": "2004-08-12",
+      "email": "student@svit.edu.in",
+      "phone": "9012345678",
+      "enrollment_no": "220120111001",
+      "dept_id": "CSE",
+      "semester": "06"
+    },
+    {
+      "student_id": "STU002",
+      "name": "Riya Patel",
+      "gender": "F",
+      "dob": "2004-03-28",
+      "email": "riya.patel@svit.edu.in",
+      "phone": "9012309876",
+      "enrollment_no": "220120111002",
+      "dept_id": "IT",
+      "semester": "04"
+    },
+    {
+      "student_id": "STU003",
+      "name": "Kabir Joshi",
+      "gender": "M",
+      "dob": "2003-12-05",
+      "email": "kabir.joshi@svit.edu.in",
+      "phone": "9012387654",
+      "enrollment_no": "220120111003",
+      "dept_id": "EC",
+      "semester": "08"
+    }
+  ],
+  "materials": [
+    {
+      "mat_id": "MAT001",
+      "title": "Database Management System Unit 1 Notes",
+      "subject": "DBMS",
+      "file_name": "dbms-unit-1.pdf",
+      "file_content_type": "PDF",
+      "file_url": "https://help.sap.com/docs/abap-cloud/abap-rap/abap-restful-application-programming-model",
+      "dept_id": "CSE",
+      "semester": "06",
+      "uploaded_by": "FAC001",
+      "created_at": "2026-04-15T09:30:00.000Z"
+    },
+    {
+      "mat_id": "MAT002",
+      "title": "SAP ABAP RAP Introduction Slides",
+      "subject": "SAP ABAP",
+      "file_name": "rap-introduction.pptx",
+      "file_content_type": "PPTX",
+      "file_url": "https://developers.sap.com/group.abap-env-restful.html",
+      "dept_id": "IT",
+      "semester": "04",
+      "uploaded_by": "FAC002",
+      "created_at": "2026-04-18T11:10:00.000Z"
+    },
+    {
+      "mat_id": "MAT003",
+      "title": "Digital Communication Assignment",
+      "subject": "Digital Communication",
+      "file_name": "dc-assignment.docx",
+      "file_content_type": "DOCX",
+      "file_url": "https://community.sap.com",
+      "dept_id": "EC",
+      "semester": "08",
+      "uploaded_by": "FAC003",
+      "created_at": "2026-04-20T13:45:00.000Z"
+    },
+    {
+      "mat_id": "MAT004",
+      "title": "Advanced SQL Joins Practice",
+      "subject": "DBMS",
+      "file_name": "sql-joins-practice.pdf",
+      "file_content_type": "PDF",
+      "file_url": "https://help.sap.com/docs/abap-cloud/abap-sql",
+      "dept_id": "CSE",
+      "semester": "06",
+      "uploaded_by": "FAC001",
+      "created_at": "2026-05-02T08:20:00.000Z"
+    }
+  ]
+}
